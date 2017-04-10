@@ -12,8 +12,8 @@
 		<section id="packages" class="row">
 			<?php get_template_part( 'template-parts/content-packages', get_post_format() ); ?>
 		</section>
-		<section id="tenants" class="row">
-			<?php get_template_part( 'template-parts/content-tenants', get_post_format() ); ?>
+		<section id="testimonials" class="row">
+			<?php get_template_part( 'template-parts/content-testimonials', get_post_format() ); ?>
 		</section>
 		<section id="location" class="row">
 			<?php get_template_part( 'template-parts/content-location', get_post_format() ); ?>

@@ -28,6 +28,8 @@ function penthouseoffice_setup()  {
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'eruma-yon' ),
 	) );
+    
+    show_admin_bar(false);
 }
 endif;
 add_action( 'after_setup_theme', 'penthouseoffice_setup' );

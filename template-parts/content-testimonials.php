@@ -1,9 +1,9 @@
-<header class="col-md-12"><h2 class="section-title">Faciliteter</h2></header>
+<header class="col-md-12"><h2 class="section-title">Rekommendation</h2></header>
 <div class="col-md-10 section-content">
-<?php $query2 = new WP_Query( 'post_type=facilities&posts_per_page=6' );
-if( $query2->have_posts() ){
+<?php $query4 = new WP_Query( 'post_type=testimonials' );
+if( $query4->have_posts() ){
     // The Loop
-    while ( $query2->the_post() ){ ?>
+    while ( $query4->the_post() ){ ?>
         <article id="item-<?php the_ID(); ?>" <?php post_class(); ?>>
             <?php
             if ( has_post_thumbnail()) : the_post_thumbnail('large');
