@@ -6,7 +6,9 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<aside>
+	<div class="container-fluid">
+	<div class="row">
+	<aside class="col-md-2">
 		<div class="site-branding">
 			<?php
 				penthouseoffice_the_custom_logo();

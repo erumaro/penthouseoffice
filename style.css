@@ -8,3 +8,60 @@ Version: 1.0
 Tags: basic
 Text Domain: penthouseoffice
 */
+
+h1, h2{
+	margin-top: 0;
+	padding-top: 20px;
+}
+
+.section-title {
+	color: #4A4A4A;
+	font-family: 'Roboto', sans-serif;
+	font-size: 32px;
+	font-weight: 300;
+	line-height: 48px;
+	text-align: center;
+	text-transform: uppercase;
+	height: 48px;
+}
+
+p {
+	color: #000000;
+	font-family: 'Roboto';
+	font-size: 22px;
+	font-weight: 300;
+	line-height: 25px;
+}
+
+aside{
+	position: fixed;
+	top: 0;
+	left: 0;
+	float: left;
+	width: 20vw;
+}
+
+main{
+	float: left;
+	width: 80vw;
+	position: relative;
+}
+
+#about{
+	background: #ECECEC;
+	height: 700px;
+}
+
+#about h3 {
+	color: #323232;
+	font-family: 'Roboto', sans-serif;
+	font-size: 40px;
+	line-height: 40px;
+}
+
+.section-content{
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	height: 652px;
+}
