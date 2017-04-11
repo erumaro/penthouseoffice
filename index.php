@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-	<main class="col-md-10 container-fluid">
+	<main id="primary" class="col-md-10" role="main">
 		<section id="top-section" class="row">
 			<?php get_template_part( 'template-parts/content-top-section', get_post_format() ); ?>
 		</section>

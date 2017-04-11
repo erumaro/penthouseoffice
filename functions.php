@@ -51,9 +51,9 @@ function penthouseoffice_scripts() {
     wp_enqueue_style('penthouseoffice-style', get_stylesheet_uri());
 
     // JavaScript
-    wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/javascript/bootstrap/js/bootstrap.min.js', array('jquery'), '', true);
+    wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array('jquery'), '', true);
     wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', '', '', true);
-    wp_enqueue_script('penthouseoffice-custom', get_template_directory_uri() . '/javascript/custom.js', '', '', true);
+    wp_enqueue_script('penthouseoffice-custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), '', true);
 
     /* Creates a global js var that can be used to call url dynamically.
     For example: 
@@ -164,7 +164,7 @@ function facilities_post_type() {
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'revisions', ),
 		'taxonomies'            => array( 'category', 'post_tag' ),
-		'hierarchical'          => false,
+		'hierarchical'          => true,
 		'public'                => true,
 		'show_ui'               => true,
 		'show_in_menu'          => true,

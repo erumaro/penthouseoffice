@@ -8,7 +8,7 @@
 <body <?php body_class(); ?>>
 	<div class="container-fluid">
 	<div class="row">
-	<aside class="col-md-2">
+	<aside id="secondary" class="col-md-2" role="complementary">
 	    <div class="aside-content">
             <div class="site-branding">
                 <?php

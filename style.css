@@ -9,53 +9,78 @@ Tags: basic
 Text Domain: penthouseoffice
 */
 
-h1, h2{
-	margin-top: 0;
-	padding-top: 20px;
-}
-
-.section-title {
-	color: #4A4A4A;
+/* GENERAL */
+html, body{
 	font-family: 'Roboto', sans-serif;
+}
+/* TEXT STYLES */
+h1, h2, h3{
+	margin-top: 0;
+	padding-top: 20px;	
+}
+h2{
+	color: #4A4A4A;
 	font-size: 32px;
 	font-weight: 300;
 	line-height: 48px;
 	text-align: center;
 	text-transform: uppercase;
-	height: 48px;
 }
-
-p {
+p{
 	color: #000000;
-	font-family: 'Roboto';
 	font-size: 22px;
 	font-weight: 300;
 	line-height: 25px;
 }
 
+/* HEADER */
+.custom-logo{
+	width: 100%;
+	height: auto;
+}
+
+.site-title, .site-description{
+	display: none;
+}
+
+/* ASIDE */
+#secondary{
+	position: relative;
+}
+
 .aside-content{
-	position: fixed !important;
-	top: 0;
-	left: 0;
+	position: fixed;
+	width: 16.66666667%;
+	z-index: 1;
+	min-height: 1px;
+	margin: 0 -15px;
+	padding: 0 20px;
+}
+
+.custom-logo{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.main-navigation ul{
+	list-style: none;
+	padding-left: 0;
+}
+
+.main-navigation ul li a{
+	color: #E3946B;	
+	font-size: 19px;	
+	font-weight: 500;	
+	line-height: 28px;
+}
+
+/* SECTIONS */
+section{
+	height: 700px;
 }
 
 #about, #testimonials{
 	background: #ECECEC;
-	height: 700px;
-}
-
-#about h3 {
-	color: #323232;
-	font-family: 'Roboto', sans-serif;
-	font-size: 40px;
-	line-height: 40px;
-}
-
-.section-content{
-	display: flex;
-	flex-direction: column;
-	align-content: center;
-	height: 652px;
 }
 
 #location{
@@ -65,3 +90,21 @@ p {
 #contact{
     background: #BAB6DB;
 }
+
+#about h3 {
+	color: #323232;
+	font-size: 40px;
+	line-height: 40px;
+}
+
+/* FOOTER */
+.site-footer{
+	color: #000000;	
+	font-size: 15px;	
+	font-weight: 300;	
+	line-height: 25px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/* MEDIA QUERIES */
