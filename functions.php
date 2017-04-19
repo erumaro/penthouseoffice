@@ -10,8 +10,8 @@ function penthouseoffice_setup()  {
 	add_theme_support( 'post-formats', array( 'quote' ) );
 
 	// Add theme support for Featured Images
-	//add_theme_support( 'post-thumbnails', array( 'post', 'facilities' ) );
-    add_theme_support( 'post-thumbnails', array( 'post' ) );
+	add_theme_support( 'post-thumbnails', array( 'post', 'facilities' ) );
+    //add_theme_support( 'post-thumbnails', array( 'post' ) );
 
 	// Add theme support for HTML5 Semantic Markup
 	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
@@ -106,8 +106,7 @@ function testimonial_post_type() {
 		'description'           => __( 'Testimonial information page.', 'penthouseoffice' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'revisions', ),
-		'taxonomies'            => array( 'category' ),
-		'hierarchical'          => false,
+		'hierarchical'          => true,
 		'public'                => true,
 		'show_ui'               => true,
 		'show_in_menu'          => true,
@@ -182,3 +181,99 @@ function facilities_post_type() {
 
 }
 add_action( 'init', 'facilities_post_type', 0 );
+
+// Register Custom Post Type
+function packages_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'Packages', 'Post Type General Name', 'penthouseoffice' ),
+		'singular_name'         => _x( 'Package', 'Post Type Singular Name', 'penthouseoffice' ),
+		'menu_name'             => __( 'Packages', 'penthouseoffice' ),
+		'name_admin_bar'        => __( 'Package', 'penthouseoffice' ),
+		'archives'              => __( 'Item Archives', 'penthouseoffice' ),
+		'attributes'            => __( 'Item Attributes', 'penthouseoffice' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'penthouseoffice' ),
+		'all_items'             => __( 'All Items', 'penthouseoffice' ),
+		'add_new_item'          => __( 'Add New Item', 'penthouseoffice' ),
+		'add_new'               => __( 'Add New', 'penthouseoffice' ),
+		'new_item'              => __( 'New Item', 'penthouseoffice' ),
+		'edit_item'             => __( 'Edit Item', 'penthouseoffice' ),
+		'update_item'           => __( 'Update Item', 'penthouseoffice' ),
+		'view_item'             => __( 'View Item', 'penthouseoffice' ),
+		'view_items'            => __( 'View Items', 'penthouseoffice' ),
+		'search_items'          => __( 'Search Item', 'penthouseoffice' ),
+		'not_found'             => __( 'Not found', 'penthouseoffice' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'penthouseoffice' ),
+		'featured_image'        => __( 'Featured Image', 'penthouseoffice' ),
+		'set_featured_image'    => __( 'Set featured image', 'penthouseoffice' ),
+		'remove_featured_image' => __( 'Remove featured image', 'penthouseoffice' ),
+		'use_featured_image'    => __( 'Use as featured image', 'penthouseoffice' ),
+		'insert_into_item'      => __( 'Insert into item', 'penthouseoffice' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'penthouseoffice' ),
+		'items_list'            => __( 'Items list', 'penthouseoffice' ),
+		'items_list_navigation' => __( 'Items list navigation', 'penthouseoffice' ),
+		'filter_items_list'     => __( 'Filter items list', 'penthouseoffice' ),
+	);
+	$args = array(
+		'label'                 => __( 'Package', 'penthouseoffice' ),
+		'description'           => __( 'The packages available for phS customers', 'penthouseoffice' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'page-attributes', ),
+		'taxonomies'            => array( 'Price Types' ),
+		'hierarchical'          => true,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-cart',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => false,
+		'can_export'            => true,
+		'has_archive'           => true,		
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'packages', $args );
+
+}
+add_action( 'init', 'packages_post_type', 0 );
+
+// Register Custom Taxonomy
+function price_taxonomy() {
+
+	$labels = array(
+		'name'                       => _x( 'Price Types', 'Taxonomy General Name', 'penthouseoffice' ),
+		'singular_name'              => _x( 'Price Type', 'Taxonomy Singular Name', 'penthouseoffice' ),
+		'menu_name'                  => __( 'Price Type', 'penthouseoffice' ),
+		'all_items'                  => __( 'All Items', 'penthouseoffice' ),
+		'parent_item'                => __( 'Parent Item', 'penthouseoffice' ),
+		'parent_item_colon'          => __( 'Parent Item:', 'penthouseoffice' ),
+		'new_item_name'              => __( 'New Item Name', 'penthouseoffice' ),
+		'add_new_item'               => __( 'Add New Item', 'penthouseoffice' ),
+		'edit_item'                  => __( 'Edit Item', 'penthouseoffice' ),
+		'update_item'                => __( 'Update Item', 'penthouseoffice' ),
+		'view_item'                  => __( 'View Item', 'penthouseoffice' ),
+		'separate_items_with_commas' => __( 'Separate items with commas', 'penthouseoffice' ),
+		'add_or_remove_items'        => __( 'Add or remove items', 'penthouseoffice' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'penthouseoffice' ),
+		'popular_items'              => __( 'Popular Items', 'penthouseoffice' ),
+		'search_items'               => __( 'Search Items', 'penthouseoffice' ),
+		'not_found'                  => __( 'Not Found', 'penthouseoffice' ),
+		'no_terms'                   => __( 'No items', 'penthouseoffice' ),
+		'items_list'                 => __( 'Items list', 'penthouseoffice' ),
+		'items_list_navigation'      => __( 'Items list navigation', 'penthouseoffice' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => false,
+		'show_tagcloud'              => false,
+	);
+	register_taxonomy( 'pricetype', array( 'packages' ), $args );
+
+}
+add_action( 'init', 'price_taxonomy', 0 );
