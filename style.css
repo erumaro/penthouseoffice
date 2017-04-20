@@ -33,6 +33,10 @@ p{
 	line-height: 25px;
 }
 
+.strong{
+	font-weight: 700;
+}
+
 /* HEADER */
 .custom-logo{
 	width: 100%;
@@ -76,11 +80,49 @@ p{
 
 /* SECTIONS */
 section{
-	height: 700px;
+	min-height: 720px;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	padding: 60px 0;
 }
 
 #about, #testimonials{
 	background: #ECECEC;
+}
+
+#packages .col-md-3 div{
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#packages h3{
+	padding: 0;
+	margin: 0;
+}
+
+#packages p{
+	padding: 0;
+	margin: 0;
+}
+
+#packages .services-title div{
+	align-items: flex-end;
+}
+
+#packageBtn {
+	height: 44.99px;
+	width: 220px;
+	border-radius: 3px;
+	background-color: #FFFFFF;
+	box-shadow: 0 0 2px 1px #86A4B3;
+	color: #323232;
+	font-size: 17px;
+	font-weight: 500;
+	line-height: 40px;
 }
 
 #location{
@@ -95,6 +137,16 @@ section{
 	color: #323232;
 	font-size: 40px;
 	line-height: 40px;
+}
+
+.facilities-item{
+	height: 238px;
+	display: flex;
+	flex-direction: column;
+}
+
+.facilities-content{
+	align-items: flex-end;
 }
 
 /* FOOTER */

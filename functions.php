@@ -105,7 +105,7 @@ function testimonial_post_type() {
 		'label'                 => __( 'Testimonial', 'penthouseoffice' ),
 		'description'           => __( 'Testimonial information page.', 'penthouseoffice' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'revisions', ),
+		'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'revisions', 'post-formats' ),
 		'hierarchical'          => true,
 		'public'                => true,
 		'show_ui'               => true,
