@@ -112,29 +112,15 @@
 </section>
 <section id="testimonials" class="row">
 	<?php
-	$query_testimonials_1 = new WP_Query( 'pagename=rekommendationer' );
+	$query_testimonials = new WP_Query( 'pagename=rekommendationer' );
 
-	if ( $query_testimonials_1->have_posts() ) {
+	if ( $query_testimonials->have_posts() ) {
 		// The Loop
-		while ( $query_testimonials_1->have_posts() ) {
-			$query_testimonials_1->the_post();
+		while ( $query_testimonials->have_posts() ) {
+			$query_testimonials->the_post();
 			echo '<header class="col-md-12"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
 			<div class="col-md-12 section-content">
 				<?php the_content(); ?>
-				<div>
-				<?php $query_testimonials_2 = new WP_Query( 'post_type=testimonials' ); 
-				if($query_testimonials_2->have_posts()){
-					while($query_testimonials_2->have_posts()){
-						$query_testimonials_2->the_post(); ?>
-						<blockquote>
-							<?php the_field('citat'); ?>
-							<footer><cite><?php the_field('forfattare') ?>, <?php the_field('foretag') ?></cite></footer>
-						</blockquote>
-					<?php }
-					wp_reset_postdata();
-				}
-				?>
-				</div>
 			</div><?php
 		}
 		
@@ -142,8 +128,47 @@
 	} ?>
 </section>
 <section id="location" class="row">
+	<?php
+	$query_location = new WP_Query( 'pagename=plats' );
 
+	if ( $query_location->have_posts() ) {
+		// The Loop
+		while ( $query_location->have_posts() ) {
+			$query_location->the_post();
+			echo '<header class="col-md-12"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
+			<div class="col-md-12 section-content">
+				<div class="col-md-4"><?php the_content(); ?></div>
+				<div class="col-md-8">
+				<?php
+				$location = get_field('google_map');
+
+				if( !empty($location) ):
+				?>
+				<div class="acf-map">
+					<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+				</div>
+				<?php endif; ?>
+				</div>
+			</div><?php
+		}
+		
+		wp_reset_postdata();
+	} ?>
 </section>
 <section id="contact" class="row">
+	<?php
+	$query_contact = new WP_Query( 'pagename=kontakt' );
 
+	if ( $query_contact->have_posts() ) {
+		// The Loop
+		while ( $query_contact->have_posts() ) {
+			$query_contact->the_post();
+			echo '<header class="col-md-12"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
+			<div class="col-md-12 section-content">
+				<?php the_content(); ?>
+			</div><?php
+		}
+		
+		wp_reset_postdata();
+	} ?>
 </section>

@@ -62,68 +62,12 @@ function penthouseoffice_scripts() {
     New way: 
     var image = directory_uri.stylesheet_directory_uri+"/images/map-pointer.png";
     */
-    $wnm_custom = array('stylesheet_directory_uri' => get_stylesheet_directory_uri());
-    wp_localize_script('penthouseoffice-custom', 'directory_uri', $wnm_custom);
+    $wnm_custom = array( 'iconURL' => get_field('google_map_marker_icon', 78) );
+    wp_localize_script('penthouseoffice-custom', 'wpglobals', $wnm_custom);
 }
 add_action('wp_enqueue_scripts', 'penthouseoffice_scripts');
 
 // Custom post types for Penthouse Office: Facilities/Faciliteter & Omdöme/Testimonial
-
-// Register Testimonial Post Type
-function testimonial_post_type() {
-
-	$labels = array(
-		'name'                  => _x( 'Testimonials', 'Post Type General Name', 'penthouseoffice' ),
-		'singular_name'         => _x( 'Testimonial', 'Post Type Singular Name', 'penthouseoffice' ),
-		'menu_name'             => __( 'Testimonials', 'penthouseoffice' ),
-		'name_admin_bar'        => __( 'Testimonial', 'penthouseoffice' ),
-		'archives'              => __( 'Item Archives', 'penthouseoffice' ),
-		'attributes'            => __( 'Item Attributes', 'penthouseoffice' ),
-		'parent_item_colon'     => __( 'Parent Item:', 'penthouseoffice' ),
-		'all_items'             => __( 'All Items', 'penthouseoffice' ),
-		'add_new_item'          => __( 'Add New Item', 'penthouseoffice' ),
-		'add_new'               => __( 'Add New', 'penthouseoffice' ),
-		'new_item'              => __( 'New Item', 'penthouseoffice' ),
-		'edit_item'             => __( 'Edit Item', 'penthouseoffice' ),
-		'update_item'           => __( 'Update Item', 'penthouseoffice' ),
-		'view_item'             => __( 'View Item', 'penthouseoffice' ),
-		'view_items'            => __( 'View Items', 'penthouseoffice' ),
-		'search_items'          => __( 'Search Item', 'penthouseoffice' ),
-		'not_found'             => __( 'Not found', 'penthouseoffice' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'penthouseoffice' ),
-		'featured_image'        => __( 'Featured Image', 'penthouseoffice' ),
-		'set_featured_image'    => __( 'Set featured image', 'penthouseoffice' ),
-		'remove_featured_image' => __( 'Remove featured image', 'penthouseoffice' ),
-		'use_featured_image'    => __( 'Use as featured image', 'penthouseoffice' ),
-		'insert_into_item'      => __( 'Insert into item', 'penthouseoffice' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this item', 'penthouseoffice' ),
-		'items_list'            => __( 'Items list', 'penthouseoffice' ),
-		'items_list_navigation' => __( 'Items list navigation', 'penthouseoffice' ),
-		'filter_items_list'     => __( 'Filter items list', 'penthouseoffice' ),
-	);
-	$args = array(
-		'label'                 => __( 'Testimonial', 'penthouseoffice' ),
-		'description'           => __( 'Testimonial information page.', 'penthouseoffice' ),
-		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'revisions', 'post-formats' ),
-		'hierarchical'          => true,
-		'public'                => true,
-		'show_ui'               => true,
-		'show_in_menu'          => true,
-		'menu_position'         => 5,
-		'menu_icon'             => 'dashicons-admin-page',
-		'show_in_admin_bar'     => true,
-		'show_in_nav_menus'     => true,
-		'can_export'            => true,
-		'has_archive'           => true,		
-		'exclude_from_search'   => false,
-		'publicly_queryable'    => true,
-		'capability_type'       => 'page',
-	);
-	register_post_type( 'testimonials', $args );
-
-}
-add_action( 'init', 'testimonial_post_type', 0 );
 
 // Register Custom Post Type
 function facilities_post_type() {
@@ -277,3 +221,13 @@ function price_taxonomy() {
 
 }
 add_action( 'init', 'price_taxonomy', 0 );
+
+function my_acf_google_map_api( $api ){
+	
+	$api['key'] = 'AIzaSyDxVfG6KlNRw9v30e8JGzckyno21BvgVV4';
+	
+	return $api;
+	
+}
+
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
