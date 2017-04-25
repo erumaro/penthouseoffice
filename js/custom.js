@@ -1,4 +1,37 @@
 (function($) {
+	
+// Smooth scroll:
+$('a[href*="#"]')
+	.not('[href="#"]')
+	.not('[href="#0"]')
+	.click(function(event){
+		if(
+			location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+			&& 
+			location.hostname == this.hostname
+		){
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+			
+			if(target.length){
+				event.preventDefault();
+				$('html, body').animate({
+					scrollTop: target.offset().top
+				}, 1000, function(){
+					var $target = $(target);
+					$target.focus();
+					if($target.is(":focus")){
+						return false;
+					} else{
+						$target.attr('tabindex','-1');
+						$target.focus();
+					};
+				});
+			}
+		}
+});
+	
+// Code for google map:
 
 /*
 *  new_map
@@ -20,10 +53,187 @@ function new_map( $el ) {
 	
 	
 	// vars
+	var customMapStyle = [
+		{
+			"featureType": "water",
+			"elementType": "geometry",
+			"stylers": [
+				{
+					"color": "#e9e9e9"
+				},
+				{
+					"lightness": 17
+				}
+			]
+		},
+		{
+			"featureType": "landscape",
+			"elementType": "geometry",
+			"stylers": [
+				{
+					"color": "#f5f5f5"
+				},
+				{
+					"lightness": 20
+				}
+			]
+		},
+		{
+			"featureType": "road.highway",
+			"elementType": "geometry.fill",
+			"stylers": [
+				{
+					"color": "#ffffff"
+				},
+				{
+					"lightness": 17
+				}
+			]
+		},
+		{
+			"featureType": "road.highway",
+			"elementType": "geometry.stroke",
+			"stylers": [
+				{
+					"color": "#ffffff"
+				},
+				{
+					"lightness": 29
+				},
+				{
+					"weight": 0.2
+				}
+			]
+		},
+		{
+			"featureType": "road.arterial",
+			"elementType": "geometry",
+			"stylers": [
+				{
+					"color": "#ffffff"
+				},
+				{
+					"lightness": 18
+				}
+			]
+		},
+		{
+			"featureType": "road.local",
+			"elementType": "geometry",
+			"stylers": [
+				{
+					"color": "#ffffff"
+				},
+				{
+					"lightness": 16
+				}
+			]
+		},
+		{
+			"featureType": "poi",
+			"elementType": "geometry",
+			"stylers": [
+				{
+					"color": "#f5f5f5"
+				},
+				{
+					"lightness": 21
+				}
+			]
+		},
+		{
+			"featureType": "poi.park",
+			"elementType": "geometry",
+			"stylers": [
+				{
+					"color": "#dedede"
+				},
+				{
+					"lightness": 21
+				}
+			]
+		},
+		{
+			"elementType": "labels.text.stroke",
+			"stylers": [
+				{
+					"visibility": "on"
+				},
+				{
+					"color": "#ffffff"
+				},
+				{
+					"lightness": 16
+				}
+			]
+		},
+		{
+			"elementType": "labels.text.fill",
+			"stylers": [
+				{
+					"saturation": 36
+				},
+				{
+					"color": "#333333"
+				},
+				{
+					"lightness": 40
+				}
+			]
+		},
+		{
+			"elementType": "labels.icon",
+			"stylers": [
+				{
+					"visibility": "off"
+				}
+			]
+		},
+		{
+			"featureType": "transit",
+			"elementType": "geometry",
+			"stylers": [
+				{
+					"color": "#f2f2f2"
+				},
+				{
+					"lightness": 19
+				}
+			]
+		},
+		{
+			"featureType": "administrative",
+			"elementType": "geometry.fill",
+			"stylers": [
+				{
+					"color": "#fefefe"
+				},
+				{
+					"lightness": 20
+				}
+			]
+		},
+		{
+			"featureType": "administrative",
+			"elementType": "geometry.stroke",
+			"stylers": [
+				{
+					"color": "#fefefe"
+				},
+				{
+					"lightness": 17
+				},
+				{
+					"weight": 1.2
+				}
+			]
+		}
+	];
+	
 	var args = {
 		zoom		: 16,
 		center		: new google.maps.LatLng(0, 0),
-		mapTypeId	: google.maps.MapTypeId.ROADMAP
+		styles		: customMapStyle
 	};
 	
 	

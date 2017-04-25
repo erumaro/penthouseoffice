@@ -1,3 +1,16 @@
+<section id="top-content">
+	<header class="parallax-window col-md-12" data-parallax="scroll" data-image-src="<?php echo the_post_thumbnail_url() ?>">
+		<h1><?php the_title(); ?></h1>
+	</header>
+	<div class="parallax-window col-md-12" data-parallax="scroll" data-image-src="<?php echo the_field('bild_2') ?>">
+		<h2><?php the_field('titel_2'); ?></h2>
+	</div>
+	<div class="parallax-window col-md-12" data-parallax="scroll" data-image-src="<?php echo the_field('bild_3') ?>">
+		<h2><?php the_field('titel_3'); ?></h2>
+	</div>
+	<div class="col-md-12 section-content"><?php the_content(); ?></div>
+</section>
+
 <section id="about">
 	<?php
 	$query_about = new WP_Query( 'pagename=om-oss' );
@@ -17,7 +30,7 @@
 </section>
 <section id="facilities">
 	<?php
-	$query_facilities_1 = new WP_Query( 'pagename=facilities' );
+	$query_facilities_1 = new WP_Query( 'pagename=faciliteter' );
 
 	if ( $query_facilities_1->have_posts() ) {
 		// The Loop
@@ -164,11 +177,14 @@
 		while ( $query_contact->have_posts() ) {
 			$query_contact->the_post();
 			echo '<header class="col-md-12"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
-			<div class="col-md-12 section-content">
+		<div class="row">
+			<div class="col-md-6">
 				<?php the_content(); ?>
 			</div><?php
 		}
 		
 		wp_reset_postdata();
 	} ?>
+			<div class="col-md-6"></div>
+		</div>
 </section>

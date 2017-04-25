@@ -84,15 +84,40 @@ section{
 	height: auto;
 	display: flex;
 	flex-direction: column;
-	padding: 60px 0;
+	align-items: center;
 }
 
 .section-content > p{
 	text-align: center;
 }
 
-#about, #testimonials{
+#top-content > .section-content, #about, #testimonials{
 	background: #ECECEC;
+}
+
+#top-content h1, #top-content p{
+	color: #fff;
+	font-size: 22px;
+	font-weight: 300;
+	line-height: 25px;
+	align-self: flex-end;
+	margin-bottom: 60px;
+	text-shadow: 0px 0px 30px rgba(0, 0, 0, 1);
+}
+
+#top-content h2{
+	color: #fff;
+	font-size: 72px;
+	font-weight: 300;
+	text-shadow: 0px 0px 60px rgba(0, 0, 0, 0.7);
+}
+
+.parallax-window {
+    min-height: 780px;
+    background: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #packages .col-md-3 div{

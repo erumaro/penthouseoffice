@@ -10,7 +10,7 @@ function penthouseoffice_setup()  {
 	add_theme_support( 'post-formats', array( 'quote' ) );
 
 	// Add theme support for Featured Images
-	add_theme_support( 'post-thumbnails', array( 'post', 'facilities' ) );
+	add_theme_support( 'post-thumbnails', array( 'post', 'facilities', 'page' ) );
     //add_theme_support( 'post-thumbnails', array( 'post' ) );
 
 	// Add theme support for HTML5 Semantic Markup
@@ -53,6 +53,7 @@ function penthouseoffice_scripts() {
     // JavaScript
     wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array('jquery'), '', true);
     wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', '', '', true);
+	wp_enqueue_script('parallax', get_template_directory_uri() . '/js/parallax.min.js', array('jquery'), '', true);
     wp_enqueue_script('penthouseoffice-custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), '', true);
 
     /* Creates a global js var that can be used to call url dynamically.
