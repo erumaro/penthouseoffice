@@ -1,14 +1,26 @@
 <section id="top-content">
-	<header class="parallax-window col-md-12" data-parallax="scroll" data-image-src="<?php echo the_post_thumbnail_url() ?>">
-		<h1><?php the_title(); ?></h1>
+	<header class="parallax-window" data-parallax="scroll" data-image-src="<?php echo the_post_thumbnail_url() ?>">
+		<div class="gradient-bottom">
+			<h1><?php the_title(); ?></h1>
+		</div>
 	</header>
-	<div class="parallax-window col-md-12" data-parallax="scroll" data-image-src="<?php echo the_field('bild_2') ?>">
-		<h2><?php the_field('titel_2'); ?></h2>
+	<div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo the_field('bild_2') ?>">
+		<div class="gradient-bottom">
+			<h2><?php the_field('titel_2'); ?></h2>
+			<?php the_field('content_2'); ?>
+		</div>
 	</div>
-	<div class="parallax-window col-md-12" data-parallax="scroll" data-image-src="<?php echo the_field('bild_3') ?>">
-		<h2><?php the_field('titel_3'); ?></h2>
+	<div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo the_field('bild_3') ?>">
+		<div class="gradient-bottom">
+			<h2><?php the_field('titel_2'); ?></h2>
+			<?php the_field('content_2'); ?>
+		</div>
 	</div>
-	<div class="col-md-12 section-content"><?php the_content(); ?></div>
+	<div class="section-content">
+		<div class="col-md-10">
+		<?php the_content(); ?>
+		</div>
+	</div>
 </section>
 
 <section id="about">
@@ -44,7 +56,7 @@
 						$query_facilities_2->the_post(); ?>
 						<div class="col-md-6 facilities-item" <?php if(has_post_thumbnail()): ?>style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')" <?php endif; ?>>
 							<h3 class="facilities-title"><?php the_title(); ?></h3>
-							<div class="facilities-content"><?php the_content(); ?></div>
+							<?php the_content(); ?>
 						</div>
 					<?php }
 					wp_reset_postdata();
@@ -65,6 +77,8 @@
 	<header class="col-md-12"><h2 class="section-title"><?php the_title(); ?></h2></header>
 	<div class="col-md-10 section-content">
 		<?php the_content(); ?>
+	</div>
+	<div class="col-md-10">
 		<div class="row">
 			<div class="col-md-3 services-title">
 				<div></div>
@@ -84,8 +98,8 @@
 		if($query_packages->have_posts()){
 			while($query_packages->have_posts()){
 				$query_packages->the_post(); ?>
-			<div class="col-md-3 content-<?php echo 'derp' ?>">
-				<div><h3><?php the_title(); ?></h3></div>
+			<div class="col-md-3 content-<?php echo the_ID() ?>">
+				<div class="package-header"><h3><?php the_title(); ?></h3></div>
 				<?php the_content(); ?>
 				<?php $package_values = array(
 					'bredband-internet', 
@@ -107,9 +121,53 @@
 				<?php } else{ ?>
 				<div><p>Tillval</p></div>
 				<?php } ?>
-			<?php } ?>
-				<div><p><?php the_field('pris'); ?>kr</p></div>
-				<div><button id="packageBtn">Intresseanmälan</button></div>
+			<?php } 
+				
+				if( has_term('choice', 'pricetype') ){
+				?>
+				<div class="price-select">
+					<ul id="myTab" class="nav nav-tabs" role="tablist">
+						<li class="active">
+							<a class="anchor" data-toggle="tab" role="tab" href="#choice-small" aria-controls="choice-small">
+								S
+							</a>
+						</li>
+						<li>
+							<a class="anchor" data-toggle="tab" role="tab" href="#choice-medium" aria-controls="choice-medium">
+								M
+							</a>
+						</li>
+						<li>
+							<a class="anchor" data-toggle="tab" role="tab" href="#choice-large" aria-controls="choice-large">
+								L
+							</a>
+						</li>
+					</ul>
+				</div>
+				<?php } else{ ?>
+					<div class="spacer-no-select"></div>
+				<?php } ?>
+				<div class="price"><p>
+					<?php 
+					if(the_field('pris') == true){
+						the_field('pris');
+					} else { ?>
+						<span class="price-amount">
+							<div class="tab-content">
+								<div id="choice-small" role="tabpanel" class="tab-pane active">
+									<?php the_field('small'); ?>
+								</div>
+								<div id="choice-medium" role="tabpanel" class="tab-pane">
+									<?php the_field('medium'); ?>
+								</div>
+								<div id="choice-large" role="tabpanel" class="tab-pane">
+									<?php the_field('large'); ?>
+								</div>
+							</div>
+						</span>
+					<?php };
+				?>kr</p></div>
+				<div class="btn-wrapper"><button id="packageBtn">Intresseanmälan</button></div>
 			</div>
 			<?php } ?>
 			<?php wp_reset_postdata();

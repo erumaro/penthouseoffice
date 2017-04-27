@@ -63,7 +63,12 @@ function penthouseoffice_scripts() {
     New way: 
     var image = directory_uri.stylesheet_directory_uri+"/images/map-pointer.png";
     */
-    $wnm_custom = array( 'iconURL' => get_field('google_map_marker_icon', 78) );
+    $wnm_custom = array( 
+		'iconURL' => get_field('google_map_marker_icon', 78),
+		'smallPrice' => get_field('small', 32),
+		'mediumPrice' => get_field('medium', 32),
+		'largePrice' => get_field('large', 32)
+	);
     wp_localize_script('penthouseoffice-custom', 'wpglobals', $wnm_custom);
 }
 add_action('wp_enqueue_scripts', 'penthouseoffice_scripts');

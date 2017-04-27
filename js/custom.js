@@ -31,6 +31,8 @@ $('a[href*="#"]')
 		}
 });
 	
+$('#choice-small').tab('show');
+
 // Code for google map:
 
 /*
