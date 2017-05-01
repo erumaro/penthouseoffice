@@ -98,7 +98,7 @@
 		if($query_packages->have_posts()){
 			while($query_packages->have_posts()){
 				$query_packages->the_post(); ?>
-			<div class="col-md-3 content-<?php echo the_ID() ?>">
+			<div class="col-md-3 content-<?php echo get_post_field( 'post_name' ); ?>">
 				<div class="package-header"><h3><?php the_title(); ?></h3></div>
 				<?php the_content(); ?>
 				<?php $package_values = array(
@@ -146,28 +146,19 @@
 				</div>
 				<?php } else{ ?>
 					<div class="spacer-no-select"></div>
-				<?php } ?>
-				<div class="price"><p>
-					<?php 
-					if(the_field('pris') == true){
-						the_field('pris');
-					} else { ?>
-						<span class="price-amount">
-							<div class="tab-content">
-								<div id="choice-small" role="tabpanel" class="tab-pane active">
-									<?php the_field('small'); ?>
-								</div>
-								<div id="choice-medium" role="tabpanel" class="tab-pane">
-									<?php the_field('medium'); ?>
-								</div>
-								<div id="choice-large" role="tabpanel" class="tab-pane">
-									<?php the_field('large'); ?>
-								</div>
-							</div>
-						</span>
-					<?php };
-				?>kr</p></div>
-				<div class="btn-wrapper"><button id="packageBtn">Intresseanmälan</button></div>
+				<?php }; ?>
+                <div class="price">
+                <?php if(get_field('pris') == true){ ?>
+                    <div class="price-simple">
+                        <p><?php echo get_field('pris'); ?>kr</p>
+                    </div>
+                <?php } else{ ?>
+                    <div class="price-choice">
+                        <p>från <span class="price-amount"></span>kr</p>
+                    </div>
+                <?php }; ?>
+                </div>
+				<div class="btn-wrapper"><button id="<?php echo get_post_field( 'post_name' ); ?>-btn" class="package-btn">Intresseanmälan</button></div>
 			</div>
 			<?php } ?>
 			<?php wp_reset_postdata();
@@ -183,7 +174,7 @@
 </section>
 <section id="testimonials" class="row">
 	<?php
-	$query_testimonials = new WP_Query( 'pagename=rekommendationer' );
+	$query_testimonials = new WP_Query( 'pagename=testimonial' );
 
 	if ( $query_testimonials->have_posts() ) {
 		// The Loop

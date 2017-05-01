@@ -13,6 +13,11 @@ Text Domain: penthouseoffice
 html, body{
 	font-family: 'Roboto', sans-serif;
 }
+
+.page{
+    width: 100%;
+}
+
 /* TEXT STYLES */
 h1, h2, h3{
 	margin-top: 0;
@@ -59,6 +64,8 @@ p{
 	margin: 0 -15px;
 	padding: 0 20px;
     width: inherit;
+    height: 100%;
+    background-color: #fff;
 }
 
 .custom-logo{
@@ -135,6 +142,12 @@ section{
 	font-weight: 300;
 	line-height: 25px;
 	text-align: center;
+}
+
+.parallax-window h1{
+    justify-content: flex-end;
+    margin-top: auto;
+    padding-bottom: 5vh;
 }
 
 #top-content .section-content{
@@ -236,27 +249,27 @@ section{
 	text-transform: uppercase;
 }
 
-.content-33 div{
+.content-virtuellt div{
 	background-color: #D1DEE4; /* this for virtual */
 }
 
-.content-33 .package-header{
+.content-virtuellt .package-header{
 	background-color: #A4BDC9;
 }
 
-.content-32 div{
+.content-eget-kontor div{
 	background-color: #CFCCE8; /* this is for room */
 }
 
-.content-32 .package-header{
+.content-eget-kontor .package-header{
 	background-color: #BAB6DB;
 }
 
-.content-26 div{
+.content-oppet-landskap div{
 	background-color: #D6E9FF; /* this is for open */
 }
 
-.content-26 .package-header{
+.content-oppet-landskap .package-header{
 	background-color: #B0CAE7;
 }
 
@@ -321,16 +334,15 @@ section{
 
 }
 
-#packageBtn {
-	height: 44.99px;
-	width: 220px;
+.package-btn {
 	border-radius: 3px;
 	background-color: #FFFFFF;
 	box-shadow: 0 0 2px 1px #86A4B3;
 	color: #323232;
 	font-size: 17px;
+    line-height: 17px;
 	font-weight: 500;
-	line-height: 40px;
+    padding: 5px 20px;
 }
 
 .btn-wrapper{

@@ -30,8 +30,15 @@ $('a[href*="#"]')
 			}
 		}
 });
-	
-$('#choice-small').tab('show');
+    
+// Code for displaying the choice amount
+var amount = wpglobals.smallPrice;
+
+$(document).ready(function(){
+    
+    $(".price-amount").html(amount);
+
+});
 
 // Code for google map:
 
