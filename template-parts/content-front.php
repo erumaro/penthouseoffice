@@ -31,10 +31,12 @@
 		// The Loop
 		while ( $query_about->have_posts() ) {
 			$query_about->the_post();
+			echo '<div class="about-bg" style="background-image: url(' . get_the_post_thumbnail_url() . ')">';
 			echo '<header class="col-md-12"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
 			<div class="col-md-10 section-content">
 			<?php echo the_content(); ?>
-			</div><?php
+			</div>
+	<	<?php echo '</div>';
 		}
 
 		wp_reset_postdata();

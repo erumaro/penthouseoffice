@@ -48,10 +48,12 @@ function penthouseoffice_scripts() {
 
     // CSS
     wp_enqueue_style('bootstrap-style', get_stylesheet_directory_uri() . '/bootstrap/css/bootstrap.css');
+	wp_enqueue_style('jasny-bootstrap-style', get_stylesheet_directory_uri() . '/jasny-bootstrap/css/jasny-bootstrap.css');
     wp_enqueue_style('penthouseoffice-style', get_stylesheet_uri());
 
     // JavaScript
     wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array('jquery'), '', true);
+    wp_enqueue_script('jasny-bootstrap-js', get_template_directory_uri() . '/jasny-bootstrap/js/jasny-bootstrap.min.js', array('jquery'), '', true);
     wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', '', '', true);
 	wp_enqueue_script('parallax', get_template_directory_uri() . '/js/parallax.min.js', array('jquery'), '', true);
     wp_enqueue_script('penthouseoffice-custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), '', true);

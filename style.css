@@ -44,12 +44,16 @@ p{
 
 /* HEADER */
 .custom-logo{
-	width: 100%;
+	width: 70%;
 	height: auto;
 }
 
 .site-title, .site-description{
 	display: none;
+}
+
+.navbar-toggle{
+	float: left;
 }
 
 /* ASIDE */
@@ -66,11 +70,6 @@ p{
     width: inherit;
     height: 100%;
     background-color: #fff;
-}
-
-.custom-logo{
-	margin-top: 15px;
-	margin-bottom: 15px;
 }
 
 .main-navigation ul{
@@ -168,6 +167,11 @@ section{
 
 #about p{
 	text-align: left;
+}
+
+.about-bg{
+	background-size: cover;
+	height: inherit;
 }
 
 /* FACILITIES */
@@ -391,7 +395,11 @@ section{
 }
 
 /* MEDIA QUERIES */
-@media only screen and (min-width: 40rem) {
+@media only screen and (min-width: 991px) {
+  body {
+    padding-left: 300px;
+	}
+	
 	#top-content h2{
 		font-size: 72px;	
 		line-height: 80px;
