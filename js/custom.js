@@ -32,12 +32,51 @@ $('a[href*="#"]')
 });
     
 // Code for displaying the choice amount
-var amount = wpglobals.smallPrice;
-
 $(document).ready(function(){
-    
-    $(".price-amount").html(amount);
+	//Initial state of the content.
+	var amount = wpglobals.smallPrice;
+	$(".price-amount").html(amount);
 
+	// Clicks on each tab will change to the new price as long as it isn't active.
+	$('a[href="#choice-small"]').on('click', function(){
+		if(amount != wpglobals.smallPrice){ 
+			amount = wpglobals.smallPrice;
+			$(".price-amount").html(amount);
+		}
+		else{};
+	});
+
+	$('a[href="#choice-medium"]').on('click', function(){
+		if(amount != wpglobals.mediumPrice){ 
+			amount = wpglobals.mediumPrice; 
+			$(".price-amount").html(amount);
+		}
+		else{};
+	});
+
+	$('a[href="#choice-large"]').on('click', function(){
+		if(amount != wpglobals.largePrice){ 
+			amount = wpglobals.largePrice; 
+			$(".price-amount").html(amount);
+		}
+		else{};
+	});
+
+});
+	
+// Code to move to form on click and also to change the field content of the price field in form.
+// Look at moderntkontorshotell :)
+$(document).ready(function(){
+	//$('#package-contact').html('<p>Du har inte valt något <a href="#packages">PAKET</a></p>');
+	$('#package-contact input').attr('readonly', true);
+	$('.package-btn').on('click', function(){
+		if($('.package-btn').attr('id') == "oppet-landskap-btn"){
+		$('#input-package').val($('.content-oppet-landskap h3').html())
+		$('#input-price').val($('.content-oppet-landskap .price-simple p').html());
+		}
+		
+		$('a[href="#contact"]').click();
+	});
 });
 
 // Code for google map:

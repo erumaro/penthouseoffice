@@ -236,6 +236,8 @@
 		
 		wp_reset_postdata();
 	} ?>
-			<div class="col-md-6"></div>
+			<div class="col-md-6">
+				<?php echo do_shortcode('[contact-form-7 id="21" title="Kontaktformulär 1"]'); ?>
+			</div>
 		</div>
 </section>
