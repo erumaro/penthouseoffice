@@ -354,14 +354,7 @@ section{
 }
 
 /* TESTIMONIALS */
-
-.wpmslider-wrapper {
-	height: 325px;
-	width: 877px;
-	border-radius: 5px;
-	background-color: #FFFFFF;
-	box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
-}
+/* Code for this sections content style found in: theme root / strong-testimonials/custom/custom.css */
 
 #location{
     background: #E3946B;

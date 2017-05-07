@@ -1,0 +1,76 @@
+/**
+ * Strong Testimonials Custom template
+ */
+
+/* prevents flash on slow page load */
+.strong-view.custom .strong_cycle .testimonial:not(:first-child) {
+	display: none;
+}
+
+.strong-view .wpmslider-wrapper{
+	height: 325px;
+	width: 877px;
+	border-radius: 5px;
+	background-color: #FFFFFF;
+	box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
+}
+
+.strong-content{
+
+}
+
+.testimonial-inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimonial-content{
+    text-align: center;
+}
+
+.testimonial-client{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.testimonial-image img{
+    width: 50px;
+    height: auto;
+    border-radius: 25px;
+    margin-right: 10px;
+}
+
+.testimonial-name{
+	font-size: 17px;
+    font-weight: 300;
+}
+
+.testimonial-company{
+    text-transform: uppercase;
+	color: #9B9B9B;	
+    font-size: 13px;	
+    font-weight: 500;
+}
+
+.strong-view.pager-style-text .wpmslider-pager-link {
+    height: 7px;	
+    width: 63px;
+    padding: 0 0.3em;
+    background-color: #D8D8D8;
+    margin: 0 7px;
+    /* Code below hides numbers */
+    line-height: 0; 
+    font-size: 0;
+    color: transparent;
+}
+
+.strong-view .wpmslider-wrapper .wpmslider-pager-link.active {
+    color: #111;
+    font-weight: 700;
+    background-color: #E3946B;
+}
