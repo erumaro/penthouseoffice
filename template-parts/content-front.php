@@ -76,13 +76,18 @@
 		// The Loop
 		while ( $query_packages_page->have_posts() ) {
 			$query_packages_page->the_post(); ?>
-	<header class="col-md-12"><h2 class="section-title"><?php the_title(); ?></h2></header>
-	<div class="col-md-10 section-content">
-		<?php the_content(); ?>
-	</div>
-	<div class="col-md-10">
+			<header class="col-md-12"><h2 class="section-title"><?php the_title(); ?></h2></header>
+			<div class="col-md-10 section-content">
+				<?php the_content(); ?>
+			</div>
+	<?php }
+	wp_reset_postdata();
+	}
+	// Two seperate divs for the small tablet/phone and large tablet/desktop
+	$query_packages = new WP_Query( 'post_type=packages&posts_per_page=3' ); ?>
+	<div class="col-md-10 hidden-xs hidden-sm">
 		<div class="row">
-			<div class="col-md-3 services-title">
+			<div class="col-md-3 services-title package-row">
 				<div></div>
 				<div><p class="strong">Bredband / Internet</p></div>
 				<div><p class="strong">Konferensrum</p></div>
@@ -96,11 +101,10 @@
 				<div><p>Solarier</p></div>
 				<div><p>Gym</p></div>
 			</div>
-		<?php $query_packages = new WP_Query( 'post_type=packages&posts_per_page=3' ); 
-		if($query_packages->have_posts()){
+		<?php if($query_packages->have_posts()){
 			while($query_packages->have_posts()){
 				$query_packages->the_post(); ?>
-			<div class="col-md-3 content-<?php echo get_post_field( 'post_name' ); ?>">
+			<div class="col-md-3 package-row content-<?php echo get_post_field( 'post_name' ); ?>">
 				<div class="package-header"><h3><?php the_title(); ?></h3></div>
 				<?php the_content(); ?>
 				<?php $package_values = array(
@@ -167,11 +171,94 @@
 		}
 		?>
 	</div>
-<?php
-		}
-
-		wp_reset_postdata();
-	} ?>
+	</div>
+	<div class="col-md-10 hidden-md hidden-lg">
+		<div class="row">
+		<?php if($query_packages->have_posts()){
+			while($query_packages->have_posts()){
+			$query_packages->the_post(); ?>
+			<div class="col-sm-12 col-xs-12 content-<?php echo get_post_field( 'post_name' ); ?>">
+			<div class="package-row">
+			<div class="package-header"><h3><?php the_title(); ?></h3></div>
+			</div>
+			<?php the_content(); ?>
+			<div class="col-sm-6 col-xs-6 services-title package-row">
+				<div><p class="strong">Bredband / Internet</p></div>
+				<div><p class="strong">Konferensrum</p></div>
+				<div><p class="strong">Kök</p></div>
+				<div><p class="strong">Fri uteparkering</p></div>
+				<div><p class="strong">Vilorum</p></div>
+				<div><p>Kontorsmöbler</p></div>
+				<div><p>Postutdelning</p></div>
+				<div><p>Användning av kopiator</p></div>
+				<div><p>Garageplats</p></div>
+				<div><p>Solarier</p></div>
+				<div><p>Gym</p></div>
+			</div>
+			<div class="col-sm-6 col-xs-6 package-row">
+				<?php $package_values = array(
+					'bredband-internet', 
+					'konferensrum',
+					'kok',
+					'fri-uteparkering',
+					'vilorum',
+					'kontorsmobler',
+					'postutdelning',
+					'anvandning-av-kopiator',
+					'garageplats',
+					'solarier',
+					'gym'
+				);
+				foreach($package_values as $package_value){
+				?>
+				<?php if( get_field($package_value) == 'Markerat' ){ ?>
+				<div><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+				<?php } else{ ?>
+				<div><p>Tillval</p></div>
+				<?php } ?>
+			<?php } ?>
+			</div>
+			<div class="package-row col-xs-12 col-sm-12">
+				<?php if( has_term('choice', 'pricetype') ){
+				?>
+				<div class="price-select">
+					<ul id="myTab" class="nav nav-tabs" role="tablist">
+						<li class="active">
+							<a class="anchor" data-toggle="tab" role="tab" href="#choice-small" aria-controls="choice-small">
+								S
+							</a>
+						</li>
+						<li>
+							<a class="anchor" data-toggle="tab" role="tab" href="#choice-medium" aria-controls="choice-medium">
+								M
+							</a>
+						</li>
+						<li>
+							<a class="anchor" data-toggle="tab" role="tab" href="#choice-large" aria-controls="choice-large">
+								L
+							</a>
+						</li>
+					</ul>
+				</div>
+				<?php } ?>
+                <div class="price">
+                <?php if(get_field('pris') == true){ ?>
+                    <div class="price-simple">
+                        <p><?php echo get_field('pris'); ?>kr</p>
+                    </div>
+                <?php } else{ ?>
+                    <div class="price-choice">
+                        <p>från <span class="price-amount"></span>kr</p>
+                    </div>
+                <?php }; ?>
+                </div>
+				<div class="btn-wrapper"><button id="<?php echo get_post_field( 'post_name' ); ?>-btn" class="package-btn">Intresseanmälan</button></div>
+				</div>
+		</div>
+			<?php }
+			wp_reset_postdata(); 
+			} ?>
+		</div>
 	</div>
 </section>
 <section id="testimonials" class="row">

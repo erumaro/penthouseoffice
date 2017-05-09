@@ -6,8 +6,8 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <div class="container-fluid">
-        <div class="row">
+    <div>
+        <div>
             <aside id="secondary" role="complementary">
 				<nav id="primary-navigation" class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm col-md-2" role="navigation">
 				  <div class="navmenu-brand hidden-xs hidden-sm">
@@ -29,7 +29,7 @@
 											'menu_class' => 'nav navmenu-nav',
 											'container' => false)); ?>
 				</nav>
-				<div class="navbar navbar-default navbar-fixed-top visible-sm visible-xs col-md-12">
+				<div class="navbar navbar-default visible-sm visible-xs col-md-12">
 				  <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#primary-navigation" data-canvas="body">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>

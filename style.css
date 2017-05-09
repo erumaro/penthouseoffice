@@ -40,7 +40,7 @@ p{
 
 /* HEADER */
 .custom-logo{
-	width: 70%;
+	width: 100%;
 	height: auto;
 }
 
@@ -53,6 +53,10 @@ p{
 }
 
 /* ASIDE */
+
+#primary-navigation{
+	width: 200px;
+}
 
 .nav > li > a {
     position: relative;
@@ -236,6 +240,10 @@ section{
 	text-transform: uppercase;
 }
 
+.content-virtuellt, .content-eget-kontor, .content-oppet-landskap{
+	margin-bottom: 20px;
+}
+
 .content-virtuellt div{
 	background-color: #D1DEE4; /* this for virtual */
 }
@@ -260,13 +268,17 @@ section{
 	background-color: #B0CAE7;
 }
 
-#packages .col-md-3 div{
+.package-row div{
 	height: 50px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	border-bottom: 2px solid #86A4B3;
+}
+
+.package-row div p{
+	font-size: 14px;
 }
 
 .price-select, .spacer-no-select, .price, .btn-wrapper{
@@ -407,6 +419,10 @@ textarea.form-control{
 	color: #323232;
 }
 
+#package-contact, textarea{
+	margin-bottom: 20px;
+}
+
 /* FOOTER */
 .site-footer{
 	color: #000000;	
@@ -420,11 +436,20 @@ textarea.form-control{
 /* MEDIA QUERIES */
 @media only screen and (min-width: 991px) {
   body {
-    padding-left: 300px;
+    padding-left: 200px;
+	}
+	
+	#primary-navigation{
+		background-color: #fff;
+		border: none;
 	}
 	
 	#top-content h2{
 		font-size: 72px;	
 		line-height: 80px;
+	}
+	
+	.package-row div p{
+		font-size: inherit;
 	}
 }
