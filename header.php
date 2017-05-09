@@ -10,7 +10,7 @@
         <div class="row">
             <aside id="secondary" role="complementary">
 				<nav id="primary-navigation" class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm col-md-2" role="navigation">
-				  <div class="navmenu-brand">
+				  <div class="navmenu-brand hidden-xs hidden-sm">
 					<?php
 						penthouseoffice_the_custom_logo();
 						if (is_front_page() && is_home()): ?>

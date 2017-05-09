@@ -68,12 +68,24 @@ $(document).ready(function(){
 // Look at moderntkontorshotell :)
 $(document).ready(function(){
 	//$('#package-contact').html('<p>Du har inte valt något <a href="#packages">PAKET</a></p>');
+	
 	$('#package-contact input').attr('readonly', true);
-	$('.package-btn').on('click', function(){
-		if($('.package-btn').attr('id') == "oppet-landskap-btn"){
+	
+	$('#virtuellt-btn').on('click', function(){
+		$('#input-package').val($('.content-virtuellt h3').html())
+		$('#input-price').val($('.content-virtuellt .price-simple p').html());
+		
+		$('a[href="#contact"]').click();
+	});
+	$('#eget-kontor-btn').on('click', function(){
+		$('#input-package').val($('.content-eget-kontor h3').html())
+		$('#input-price').val($('.content-eget-kontor .price-choice p').html().replace('<span class="price-amount">', '').replace('</span>', ''));
+		
+		$('a[href="#contact"]').click();
+	});
+	$('#oppet-landskap-btn').on('click', function(){
 		$('#input-package').val($('.content-oppet-landskap h3').html())
 		$('#input-price').val($('.content-oppet-landskap .price-simple p').html());
-		}
 		
 		$('a[href="#contact"]').click();
 	});

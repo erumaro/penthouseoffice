@@ -3,20 +3,22 @@
  */
 
 /* prevents flash on slow page load */
-.strong-view.custom .strong_cycle .testimonial:not(:first-child) {
-	display: none;
-}
 
-.strong-view .wpmslider-wrapper{
+
+.strong-view{
 	height: 325px;
 	width: 877px;
 	border-radius: 5px;
 	background-color: #FFFFFF;
 	box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
+	margin: 10px auto;
 }
 
-.strong-content{
-
+.strong-view .wpmslider-wrapper{
+	height: inherit;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .testimonial-inner{
@@ -24,6 +26,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+	min-height: 200px;
+	height: auto;
 }
 
 .testimonial-content{
