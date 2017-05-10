@@ -36,7 +36,7 @@
 			<div class="col-md-10 section-content">
 			<?php echo the_content(); ?>
 			</div>
-	<	<?php echo '</div>';
+		<?php echo '</div>';
 		}
 
 		wp_reset_postdata();

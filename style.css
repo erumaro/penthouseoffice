@@ -56,6 +56,8 @@ p{
 
 #primary-navigation{
 	width: 200px;
+	background-color: #E3946B;
+	border: none;
 }
 
 .nav > li > a {
@@ -68,7 +70,7 @@ p{
 }
 
 .navmenu-default .navmenu-nav > li > a, .navbar-default .navbar-offcanvas .navmenu-nav > li > a {
-	color: #E3946B;	
+	color: #fff;	
 }
 
 /* MAIN */
@@ -447,7 +449,10 @@ textarea.form-control{
 	
 	#primary-navigation{
 		background-color: #fff;
-		border: none;
+	}
+	
+	.navmenu-default .navmenu-nav > li > a, .navbar-default .navbar-offcanvas .navmenu-nav > li > a {
+		color: #E3946B;	
 	}
 	
 	#top-content h2{
