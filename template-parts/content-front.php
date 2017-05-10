@@ -307,6 +307,7 @@
 	} ?>
 </section>
 <section id="contact">
+	<div class="row">
 	<?php
 	$query_contact = new WP_Query( 'pagename=kontakt' );
 
@@ -325,5 +326,5 @@
 			<div class="col-md-6 col-xs-12">
 				<?php echo do_shortcode('[contact-form-7 id="21" title="Kontaktformulär 1"]'); ?>
 			</div>
-		</div>
+	</div>
 </section>
