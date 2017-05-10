@@ -29,7 +29,7 @@
 											'menu_class' => 'nav navmenu-nav',
 											'container' => false)); ?>
 				</nav>
-				<div class="navbar navbar-default visible-sm visible-xs col-md-12">
+				<div class="navbar navbar-default navbar-fixed-top visible-sm visible-xs col-md-12">
 				  <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#primary-navigation" data-canvas="body">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>

@@ -6,12 +6,15 @@
 
 
 .strong-view{
-	height: 325px;
-	width: 877px;
+	min-height: 325px;
+	max-width: 877px;
+	width: 95%;
+	height: auto;
 	border-radius: 5px;
 	background-color: #FFFFFF;
 	box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
 	margin: 10px auto;
+	padding: 15px;
 }
 
 .strong-view .wpmslider-wrapper{

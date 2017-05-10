@@ -113,6 +113,7 @@ section{
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	padding: 30px;
 }
 
 #top-content h2{
@@ -227,7 +228,7 @@ section{
 	padding: 20px 0;
 }
 
-#packages .col-md-3{
+#packages .col-md-3, #packages .col-xs-6{
 	padding-left: 3px;
 	padding-right: 3px;
 }
@@ -334,6 +335,7 @@ section{
     line-height: 17px;
 	font-weight: 500;
     padding: 5px 20px;
+	cursor:pointer;
 }
 
 .btn-wrapper{
@@ -341,6 +343,9 @@ section{
 }
 
 /* TESTIMONIALS */
+#testimonials{
+	padding: 30px;
+}
 /* Code for this sections content style found in: theme root / strong-testimonials/custom/custom.css */
 
 
@@ -364,6 +369,7 @@ section{
 /* CONTACT */
 #contact{
     background: #BAB6DB;
+	padding: 30px;
 }
 
 label{

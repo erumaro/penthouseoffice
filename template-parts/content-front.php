@@ -56,7 +56,7 @@
 				if($query_facilities_2->have_posts()){
 					while($query_facilities_2->have_posts()){
 						$query_facilities_2->the_post(); ?>
-						<div class="col-md-6 facilities-item" <?php if(has_post_thumbnail()): ?>style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')" <?php endif; ?>>
+						<div class="col-md-6 col-xs-12 facilities-item" <?php if(has_post_thumbnail()): ?>style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')" <?php endif; ?>>
 							<h3 class="facilities-title"><?php the_title(); ?></h3>
 							<?php the_content(); ?>
 						</div>
@@ -164,7 +164,7 @@
                     </div>
                 <?php }; ?>
                 </div>
-				<div class="btn-wrapper"><button id="<?php echo get_post_field( 'post_name' ); ?>-btn" class="package-btn">Intresseanmälan</button></div>
+				<div class="btn-wrapper"><a id="<?php echo get_post_field( 'post_name' ); ?>-btn" class="package-btn" href="#contact">Intresseanmälan</a></div>
 			</div>
 			<?php } ?>
 			<?php wp_reset_postdata();
@@ -261,7 +261,7 @@
 		</div>
 	</div>
 </section>
-<section id="testimonials" class="row">
+<section id="testimonials">
 	<?php
 	$query_testimonials = new WP_Query( 'pagename=testimonial' );
 
@@ -269,8 +269,8 @@
 		// The Loop
 		while ( $query_testimonials->have_posts() ) {
 			$query_testimonials->the_post();
-			echo '<header class="col-md-12"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
-			<div class="col-md-12 section-content">
+			echo '<header><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
+			<div class="section-content">
 				<?php the_content(); ?>
 			</div><?php
 		}
@@ -278,7 +278,7 @@
 		wp_reset_postdata();
 	} ?>
 </section>
-<section id="location" class="row">
+<section id="location">
 	<?php
 	$query_location = new WP_Query( 'pagename=plats' );
 
@@ -306,7 +306,7 @@
 		wp_reset_postdata();
 	} ?>
 </section>
-<section id="contact" class="row">
+<section id="contact">
 	<?php
 	$query_contact = new WP_Query( 'pagename=kontakt' );
 
@@ -315,15 +315,14 @@
 		while ( $query_contact->have_posts() ) {
 			$query_contact->the_post();
 			echo '<header class="col-md-12"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
-		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-6 col-xs-12">
 				<?php the_content(); ?>
 			</div><?php
 		}
 		
 		wp_reset_postdata();
 	} ?>
-			<div class="col-md-6">
+			<div class="col-md-6 col-xs-12">
 				<?php echo do_shortcode('[contact-form-7 id="21" title="Kontaktformulär 1"]'); ?>
 			</div>
 		</div>

@@ -71,23 +71,17 @@ $(document).ready(function(){
 	
 	$('#package-contact input').attr('readonly', true);
 	
-	$('#virtuellt-btn').on('click', function(){
-		$('#input-package').val($('.content-virtuellt h3').html())
+	$('#virtuellt-btn').on('click touchstart', function(e){
+		$('#input-package').val($('.content-virtuellt h3').html());
 		$('#input-price').val($('.content-virtuellt .price-simple p').html());
-		
-		$('a[href="#contact"]').click();
 	});
-	$('#eget-kontor-btn').on('click', function(){
-		$('#input-package').val($('.content-eget-kontor h3').html())
+	$('#eget-kontor-btn').on('click touchstart', function(e){
+		$('#input-package').val($('.content-eget-kontor h3').html());
 		$('#input-price').val($('.content-eget-kontor .price-choice p').html().replace('<span class="price-amount">', '').replace('</span>', ''));
-		
-		$('a[href="#contact"]').click();
 	});
-	$('#oppet-landskap-btn').on('click', function(){
-		$('#input-package').val($('.content-oppet-landskap h3').html())
+	$('#oppet-landskap-btn').on('click touchstart', function(e){
+		$('#input-package').val($('.content-oppet-landskap h3').html());
 		$('#input-price').val($('.content-oppet-landskap .price-simple p').html());
-		
-		$('a[href="#contact"]').click();
 	});
 });
 
