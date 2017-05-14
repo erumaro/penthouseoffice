@@ -252,7 +252,7 @@
                     </div>
                 <?php }; ?>
                 </div>
-				<div class="btn-wrapper"><button id="<?php echo get_post_field( 'post_name' ); ?>-btn" class="package-btn">Intresseanmälan</button></div>
+				<div class="btn-wrapper"><a id="<?php echo get_post_field( 'post_name' ); ?>-btn" class="package-btn" href="#contact">Intresseanmälan</a></div>
 				</div>
 		</div>
 			<?php }
