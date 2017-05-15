@@ -342,6 +342,7 @@ section{
 
 .btn-wrapper{
 	padding-bottom: 20px;
+	z-index: 1;
 }
 
 /* TESTIMONIALS */

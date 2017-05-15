@@ -66,23 +66,51 @@ $(document).ready(function(){
 	
 // Code to move to form on click and also to change the field content of the price field in form.
 // Look at moderntkontorshotell :)
+
 $(document).ready(function(){
-	//$('#package-contact').html('<p>Du har inte valt något <a href="#packages">PAKET</a></p>');
-	
 	$('#package-contact input').attr('readonly', true);
+});
+
+// Functions that replaces the content of the package input in the form with the desirable amount.
+function virtualPack(){
+	var inputTitle = $('.content-virtuellt h3').html();
+	var inputPrice = $('.content-virtuellt .price-simple p').html();
+	$('#input-package').val(inputTitle);
+	$('#input-price').val(inputPrice);
+};
 	
-	$('#virtuellt-btn').on('click touchstart', function(e){
-		$('#input-package').val($('.content-virtuellt h3').html());
-		$('#input-price').val($('.content-virtuellt .price-simple p').html());
-	});
-	$('#eget-kontor-btn').on('click touchstart', function(e){
-		$('#input-package').val($('.content-eget-kontor h3').html());
-		$('#input-price').val($('.content-eget-kontor .price-choice p').html().replace('<span class="price-amount">', '').replace('</span>', ''));
-	});
-	$('#oppet-landskap-btn').on('click touchstart', function(e){
-		$('#input-package').val($('.content-oppet-landskap h3').html());
-		$('#input-price').val($('.content-oppet-landskap .price-simple p').html());
-	});
+function egetKontorPack(){
+	var inputTitle = $('.content-eget-kontor h3').html();
+	var inputPrice = $('.content-eget-kontor .price-choice p').html().replace('<span class="price-amount">', '').replace('</span>', '');
+	$('#input-package').val(inputTitle);
+	$('#input-price').val(inputPrice);
+};
+
+function oppetLandskapPack(){
+	var inputTitle = $('.content-oppet-landskap h3').html();
+	var inputPrice = $('.content-oppet-landskap .price-simple p').html();
+	$('#input-package').val(inputTitle);
+	$('#input-price').val(inputPrice);	
+}
+
+// Click handlers that will run above code if the button/link is clicked.
+$('#packages-mobile .virtuellt-btn').on('click', function(e){
+	virtualPack();
+});
+$('#packages-desktop .virtuellt-btn').on('click', function(e){
+	virtualPack();
+});
+$('#packages-mobile .eget-kontor-btn').on('click', function(e){
+	egetKontorPack();
+});
+$('#packages-desktop .eget-kontor-btn').on('click', function(e){
+	egetKontorPack();
+});
+$('#packages-mobile .oppet-landskap-btn').on('click', function(e){
+	oppetLandskapPack();
+});
+$('#packages-desktop .oppet-landskap-btn').on('click', function(e){
+	oppetLandskapPack();
 });
 
 // Code for google map:

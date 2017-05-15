@@ -85,7 +85,7 @@
 	}
 	// Two seperate divs for the small tablet/phone and large tablet/desktop
 	$query_packages = new WP_Query( 'post_type=packages&posts_per_page=3' ); ?>
-	<div class="col-md-10 hidden-xs hidden-sm">
+	<div id="packages-desktop" class="col-md-10 hidden-xs hidden-sm">
 		<div class="row">
 			<div class="col-md-3 services-title package-row">
 				<div></div>
@@ -132,19 +132,19 @@
 				if( has_term('choice', 'pricetype') ){
 				?>
 				<div class="price-select">
-					<ul id="myTab" class="nav nav-tabs" role="tablist">
+					<ul id="myTabDesktop" class="nav nav-tabs" role="tablist">
 						<li class="active">
-							<a class="anchor" data-toggle="tab" role="tab" href="#choice-small" aria-controls="choice-small">
+							<a class="anchor" data-toggle="tab" role="tab" href="#choice-small" aria-controls="price-amount">
 								S
 							</a>
 						</li>
 						<li>
-							<a class="anchor" data-toggle="tab" role="tab" href="#choice-medium" aria-controls="choice-medium">
+							<a class="anchor" data-toggle="tab" role="tab" href="#choice-medium" aria-controls="price-amount">
 								M
 							</a>
 						</li>
 						<li>
-							<a class="anchor" data-toggle="tab" role="tab" href="#choice-large" aria-controls="choice-large">
+							<a class="anchor" data-toggle="tab" role="tab" href="#choice-large" aria-controls="price-amount">
 								L
 							</a>
 						</li>
@@ -164,7 +164,7 @@
                     </div>
                 <?php }; ?>
                 </div>
-				<div class="btn-wrapper"><a id="<?php echo get_post_field( 'post_name' ); ?>-btn" class="package-btn" href="#contact">Intresseanmälan</a></div>
+				<div class="btn-wrapper"><a class="package-btn <?php echo get_post_field( 'post_name' ); ?>-btn" href="#contact">Intresseanmälan</a></div>
 			</div>
 			<?php } ?>
 			<?php wp_reset_postdata();
@@ -172,7 +172,7 @@
 		?>
 	</div>
 	</div>
-	<div class="col-md-10 hidden-md hidden-lg">
+	<div id="packages-mobile" class="col-md-10 hidden-md hidden-lg">
 		<div class="row">
 		<?php if($query_packages->have_posts()){
 			while($query_packages->have_posts()){
@@ -222,19 +222,19 @@
 				<?php if( has_term('choice', 'pricetype') ){
 				?>
 				<div class="price-select">
-					<ul id="myTab" class="nav nav-tabs" role="tablist">
+					<ul id="myTabMobile" class="nav nav-tabs" role="tablist">
 						<li class="active">
-							<a class="anchor" data-toggle="tab" role="tab" href="#choice-small" aria-controls="choice-small">
+							<a class="anchor" data-toggle="tab" role="tab" href="#choice-small" aria-controls="price-amount">
 								S
 							</a>
 						</li>
 						<li>
-							<a class="anchor" data-toggle="tab" role="tab" href="#choice-medium" aria-controls="choice-medium">
+							<a class="anchor" data-toggle="tab" role="tab" href="#choice-medium" aria-controls="price-amount">
 								M
 							</a>
 						</li>
 						<li>
-							<a class="anchor" data-toggle="tab" role="tab" href="#choice-large" aria-controls="choice-large">
+							<a class="anchor" data-toggle="tab" role="tab" href="#choice-large" aria-controls="price-amount">
 								L
 							</a>
 						</li>
@@ -248,11 +248,11 @@
                     </div>
                 <?php } else{ ?>
                     <div class="price-choice">
-                        <p>från <span class="price-amount"></span>kr</p>
+                        <p>från <span id="price-amount" class="price-amount"></span>kr</p>
                     </div>
                 <?php }; ?>
                 </div>
-				<div class="btn-wrapper"><a id="<?php echo get_post_field( 'post_name' ); ?>-btn" class="package-btn" href="#contact">Intresseanmälan</a></div>
+				<div class="btn-wrapper"><a class="package-btn <?php echo get_post_field( 'post_name' ); ?>-btn" href="#contact">Intresseanmälan</a></div>
 				</div>
 		</div>
 			<?php }
