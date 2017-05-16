@@ -17,7 +17,7 @@
 		</div>
 	</div>
 	<div class="section-content">
-		<div class="col-md-10">
+		<div class="col-md-9 col-lg-7">
 		<?php the_content(); ?>
 		</div>
 	</div>
@@ -32,8 +32,8 @@
 		while ( $query_about->have_posts() ) {
 			$query_about->the_post();
 			echo '<div class="about-bg" style="background-image: url(' . get_the_post_thumbnail_url() . ')">';
-			echo '<header class="col-md-12"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
-			<div class="col-md-10 section-content">
+			echo '<header class="col-md-12 col-lg-10"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
+			<div class="col-md-9 col-lg-7 section-content">
 			<?php echo the_content(); ?>
 			</div>
 		<?php echo '</div>';
@@ -50,13 +50,13 @@
 		// The Loop
 		while ( $query_facilities_1->have_posts() ) {
 			$query_facilities_1->the_post();
-			echo '<header class="col-md-12"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
-			<div class="col-md-12 section-content">
+			echo '<header class="col-lg-12 col-md-12"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
+			<div class="col-lg-12 col-md-12 section-content">
 				<?php $query_facilities_2 = new WP_Query( 'post_type=facilities&posts_per_page=6&order=ASC' ); 
 				if($query_facilities_2->have_posts()){
 					while($query_facilities_2->have_posts()){
 						$query_facilities_2->the_post(); ?>
-						<div class="col-md-6 col-xs-12 facilities-item" <?php if(has_post_thumbnail()): ?>style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')" <?php endif; ?>>
+						<div class="col-lg-6 col-md-6 col-xs-12 facilities-item" <?php if(has_post_thumbnail()): ?>style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')" <?php endif; ?>>
 							<h3 class="facilities-title"><?php the_title(); ?></h3>
 							<?php the_content(); ?>
 						</div>
@@ -76,18 +76,18 @@
 		// The Loop
 		while ( $query_packages_page->have_posts() ) {
 			$query_packages_page->the_post(); ?>
-			<header class="col-md-12"><h2 class="section-title"><?php the_title(); ?></h2></header>
-			<div class="col-md-10 section-content">
+			<header class="col-md-12 col-lg-12"><h2 class="section-title"><?php the_title(); ?></h2></header>
+			<div class="col-md-9 col-lg-7 section-content">
 				<?php the_content(); ?>
 			</div>
 	<?php }
 	wp_reset_postdata();
 	}
 	// Two seperate divs for the small tablet/phone and large tablet/desktop
-	$query_packages = new WP_Query( 'post_type=packages&posts_per_page=3' ); ?>
+	$query_packages = new WP_Query( 'post_type=packages&posts_per_page=3&order=asc' ); ?>
 	<div id="packages-desktop" class="col-md-10 hidden-xs hidden-sm">
 		<div class="row">
-			<div class="col-md-3 services-title package-row">
+			<div class="col-md-2 col-lg-2 services-title package-row">
 				<div></div>
 				<div><p class="strong">Bredband / Internet</p></div>
 				<div><p class="strong">Konferensrum</p></div>
@@ -104,7 +104,7 @@
 		<?php if($query_packages->have_posts()){
 			while($query_packages->have_posts()){
 				$query_packages->the_post(); ?>
-			<div class="col-md-3 package-row content-<?php echo get_post_field( 'post_name' ); ?>">
+			<div class="col-md-3 col-lg-3 package-row content-<?php echo get_post_field( 'post_name' ); ?>">
 				<div class="package-header"><h3><?php the_title(); ?></h3></div>
 				<?php the_content(); ?>
 				<?php $package_values = array(
@@ -164,15 +164,16 @@
                     </div>
                 <?php }; ?>
                 </div>
-				<div class="btn-wrapper"><a class="package-btn <?php echo get_post_field( 'post_name' ); ?>-btn" href="#contact">Intresseanmälan</a></div>
+				<div class="btn-wrapper"><a class="package-btn <?php echo get_post_field( 'post_name' ); ?>-btn btn btn-default" href="#contact">Intresseanmälan</a></div>
 			</div>
 			<?php } ?>
 			<?php wp_reset_postdata();
 		}
 		?>
+						<div class="col-md-1"></div>
 	</div>
 	</div>
-	<div id="packages-mobile" class="col-md-10 hidden-md hidden-lg">
+	<div id="packages-mobile" class="col-md-10 col-lg-10 hidden-md hidden-lg">
 		<div class="row">
 		<?php if($query_packages->have_posts()){
 			while($query_packages->have_posts()){
@@ -252,7 +253,7 @@
                     </div>
                 <?php }; ?>
                 </div>
-				<div class="btn-wrapper"><a class="package-btn <?php echo get_post_field( 'post_name' ); ?>-btn" href="#contact">Intresseanmälan</a></div>
+				<div class="btn-wrapper"><a class="package-btn <?php echo get_post_field( 'post_name' ); ?>-btn btn btn-default" href="#contact">Intresseanmälan</a></div>
 				</div>
 		</div>
 			<?php }
@@ -270,8 +271,10 @@
 		while ( $query_testimonials->have_posts() ) {
 			$query_testimonials->the_post();
 			echo '<header><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
-			<div class="section-content">
+			<div class="section-content col-md-8 col-lg-6">
+				<div class="text-center">
 				<?php the_content(); ?>
+				</div>
 			</div><?php
 		}
 		
@@ -286,10 +289,10 @@
 		// The Loop
 		while ( $query_location->have_posts() ) {
 			$query_location->the_post();
-			echo '<header class="col-md-12"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
+			echo '<header class="col-md-12 col-lg-12"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
 			<div class="col-md-12 section-content">
-				<div class="col-md-4"><?php the_content(); ?></div>
-				<div class="col-md-8">
+				<div class="col-md-4 col-lg-4"><?php the_content(); ?></div>
+				<div class="col-md-8 col-lg-8">
 				<?php
 				$location = get_field('google_map');
 
@@ -315,15 +318,15 @@
 		// The Loop
 		while ( $query_contact->have_posts() ) {
 			$query_contact->the_post();
-			echo '<header class="col-md-12"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
-			<div class="col-md-6 col-xs-12">
+			echo '<header class="col-lg-12 col-md-12"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
+			<div class="col-lg-6 col-md-6 col-xs-12">
 				<?php the_content(); ?>
 			</div><?php
 		}
 		
 		wp_reset_postdata();
 	} ?>
-			<div class="col-md-6 col-xs-12">
+			<div class="col-lg-6 col-md-6 col-xs-12">
 				<?php echo do_shortcode('[contact-form-7 id="21" title="Kontaktformulär 1"]'); ?>
 			</div>
 	</div>

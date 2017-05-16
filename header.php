@@ -8,7 +8,7 @@
 </head>
 <body <?php body_class(); ?>>
             <aside id="secondary">
-				<nav id="primary-navigation" class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm col-md-2">
+				<nav id="primary-navigation" class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm col-md-2 col-lg-2">
 				  <div class="navmenu-brand hidden-xs hidden-sm">
 					<?php
 						penthouseoffice_the_custom_logo();
@@ -28,7 +28,7 @@
 											'menu_class' => 'nav navmenu-nav',
 											'container' => false)); ?>
 				</nav>
-				<div class="navbar navbar-default navbar-fixed-top visible-sm visible-xs col-md-12">
+				<div class="navbar navbar-default navbar-fixed-top visible-sm visible-xs col-md-12 col-lg-12">
 				  <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#primary-navigation" data-canvas="body">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>

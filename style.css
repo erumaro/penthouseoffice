@@ -12,6 +12,7 @@ Text Domain: penthouseoffice
 /* GENERAL */
 html, body{
 	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
 }
 
 /* TEXT STYLES */
@@ -148,14 +149,29 @@ section{
 }
 
 /* ABOUT */
+#about{
+	padding-bottom: 0;
+}
+
+#about > *{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding-left: 120px;
+}
+
 #about h3 {
 	color: #323232;
-	font-size: 40px;
-	line-height: 40px;
+	font-size: 27px;
+	line-height: 27px;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 #about p{
 	text-align: left;
+	width: 80vw;
 }
 
 .about-bg{
@@ -281,10 +297,10 @@ section{
 }
 
 .package-row div p{
-	font-size: 14px;
+	font-size: 15px;
 }
 
-.price-select, .spacer-no-select, .price, .btn-wrapper{
+.price-select, .spacer-no-select, .price, .price div, .btn-wrapper{
 	border-bottom: none !important;
 }
 
@@ -298,8 +314,11 @@ section{
 }
 
 #packages p{
-	padding: 0;
-	margin: 0;
+
+}
+
+#packages .price p{
+	font-size: 22px;
 }
 
 #packages .services-title div{
@@ -329,25 +348,22 @@ section{
 }
 
 .package-btn {
-	border-radius: 3px;
-	background-color: #FFFFFF;
-	box-shadow: 0 0 2px 1px #86A4B3;
-	color: #323232;
-	font-size: 17px;
-    line-height: 17px;
-	font-weight: 500;
-    padding: 5px 20px;
-	cursor:pointer;
+
 }
 
-.btn-wrapper{
-	padding-bottom: 20px;
+.package-row div.btn-wrapper{
+	padding: 20px;
 	z-index: 1;
+	height: auto;
 }
 
 /* TESTIMONIALS */
 #testimonials{
 	padding: 30px;
+}
+
+#testimonials .section-content p{
+	padding: 20px 0;
 }
 /* Code for this sections content style found in: theme root / strong-testimonials/custom/custom.css */
 
@@ -355,6 +371,10 @@ section{
 /* LOCATION */
 #location{
     background: #E3946B;
+}
+
+#location p, #location h2{
+	color: #fff;
 }
 
 .acf-map {
@@ -434,12 +454,14 @@ textarea.form-control{
 
 /* FOOTER */
 .site-footer{
+	margin: 15px;
+}
+
+.site-footer p{
 	color: #000000;	
 	font-size: 15px;	
 	font-weight: 300;	
 	line-height: 25px;
-	margin-top: 20px;
-	margin-bottom: 20px;
 }
 
 /* MEDIA QUERIES */
@@ -461,7 +483,17 @@ textarea.form-control{
 		line-height: 80px;
 	}
 	
+	#about h3 {
+		font-size: 40px;
+		line-height: 40px;
+	}
+	
+	#about p{
+		text-align: left;
+		width: 40vw;
+	}
+	
 	.package-row div p{
-		font-size: inherit;
+		font-size: 15px;
 	}
 }
