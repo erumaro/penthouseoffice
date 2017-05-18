@@ -69,6 +69,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 	$('#package-contact input').attr('readonly', true);
+	$('.share-links').hide(this);
 });
 
 // Functions that replaces the content of the package input in the form with the desirable amount.
@@ -458,6 +459,16 @@ $(document).ready(function(){
 
 	});
 
+});
+	
+// Share buttons hide and show code.
+$(document).ready(function(){
+	$('.share-links').hide(this);
+});
+	
+$('.share-toggle').on('click', function(event){
+	event.preventDefault();
+	$('.share-links').toggle(this);
 });
 
 })(jQuery);

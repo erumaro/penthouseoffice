@@ -16,10 +16,6 @@ html, body{
 }
 
 /* TEXT STYLES */
-h1, h2, h3{
-	margin-top: 0;
-	padding-top: 20px;	
-}
 h2{
 	color: #4A4A4A;
 	font-size: 32px;
@@ -28,6 +24,7 @@ h2{
 	text-align: center;
 	text-transform: uppercase;
 }
+
 p{
 	color: #000000;
 	font-size: 22px;
@@ -37,6 +34,29 @@ p{
 
 .strong{
 	font-weight: 700;
+}
+
+/* Button code */
+.btn {
+	padding: 12px 12px;
+	margin-bottom: 0;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	
+	text-transform: uppercase;
+	box-shadow: 0 0 2px 1px #86A4B3;
+	font-size: 22px;
+	font-weight: 500;
+	line-height: 24px;
+	max-width: 250px;
+	width: 100%;
+}
+
+.btn-default {
+    background-color: #fff;
+    border-color: #ccc;
+	
+	color: #323232;
 }
 
 /* HEADER */
@@ -86,6 +106,10 @@ section{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.section-title{
+	margin: 0;
 	padding: 40px 0;
 }
 
@@ -106,6 +130,12 @@ section{
     height: 100vh;
 	width: 100%;
     background: transparent;
+}
+
+.parallax-window:first-child {
+	background-size: contain !important;
+	background-repeat: no-repeat;
+	background-position: top center !important;
 }
 
 .gradient-bottom{
@@ -136,7 +166,7 @@ section{
 .parallax-window h1{
     justify-content: flex-end;
     margin-top: auto;
-    padding-bottom: 5vh;
+    padding-bottom: 18vh;
 }
 
 #top-content .section-content{
@@ -150,23 +180,15 @@ section{
 
 /* ABOUT */
 #about{
-	padding-bottom: 0;
-}
-
-#about > *{
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
-	padding-left: 120px;
+	padding: 0;
 }
 
 #about h3 {
 	color: #323232;
 	font-size: 27px;
 	line-height: 27px;
-	margin-top: 30px;
 	margin-bottom: 30px;
+	margin-top: 0;
 }
 
 #about p{
@@ -176,7 +198,27 @@ section{
 
 .about-bg{
 	background-size: cover;
-	min-height: 720px;
+	height: 100vh;
+	width: 100%;
+	background-position: center center;
+}
+
+.about-content{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+	background: #ECECEC;
+	padding: 0 15px;
+}
+
+#about .section-content{
+	padding-left: 0px;
+	padding-bottom: 20px;
+	display: flex;
+	flex-direction: column;
 	height: auto;
 }
 
@@ -213,42 +255,22 @@ section{
 	color: #fff;
 	font-size: 13px;
 	font-weight: 300;
-	line-height: 36px;
-    padding: 0 13px;
+	line-height: 20px;
+    padding: 13px;
 }
-
-/* .facilities-item{
-	height: 250px;
-	background-position: center center;
-	background-size: cover;
-	
-	display: flex;
-	flex-direction: column;
-	margin-top: auto;
-}
-
-.facilities-title{
-	color: #000;
-	font-size: 41px;
-	font-weight: 100;
-    display: flex;
-    justify-content: flex-start;
-}
-
-.facilities-item p{
-    align-self: flex-end;
-    justify-content: flex-end;
-}
-*/
 
 /* PACKAGES */
-#packages .section-content{
-	padding: 20px 0;
+#packages{
+	padding-top: 0;
 }
 
-#packages .col-md-3, #packages .col-xs-6{
-	padding-left: 3px;
-	padding-right: 3px;
+#packages .section-content{
+	padding: 0 0 20px 0;
+}
+
+#packages .col-md-3, #packages .col-xs-6, .col-md-2{
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 .package-header{
@@ -298,6 +320,7 @@ section{
 
 .package-row div p{
 	font-size: 15px;
+	margin: 0;
 }
 
 .price-select, .spacer-no-select, .price, .price div, .btn-wrapper{
@@ -313,16 +336,13 @@ section{
 	margin: 0;
 }
 
-#packages p{
-
-}
-
 #packages .price p{
 	font-size: 22px;
 }
 
 #packages .services-title div{
 	align-items: flex-end;
+	padding-right: 5px;
 }
 
 .nav-tabs {
@@ -347,10 +367,6 @@ section{
 	border-bottom: 1px solid #ddd;
 }
 
-.package-btn {
-
-}
-
 .package-row div.btn-wrapper{
 	padding: 20px;
 	z-index: 1;
@@ -359,11 +375,11 @@ section{
 
 /* TESTIMONIALS */
 #testimonials{
-	padding: 30px;
+	padding-top: 0;
 }
 
 #testimonials .section-content p{
-	padding: 20px 0;
+	padding: 0 0 20px 0;
 }
 /* Code for this sections content style found in: theme root / strong-testimonials/custom/custom.css */
 
@@ -371,6 +387,7 @@ section{
 /* LOCATION */
 #location{
     background: #E3946B;
+	padding-bottom: 30px;
 }
 
 #location p, #location h2{
@@ -392,7 +409,6 @@ section{
 /* CONTACT */
 #contact{
     background: #BAB6DB;
-	padding: 30px;
 }
 
 label{
@@ -427,27 +443,6 @@ textarea.form-control{
 	height: 80px;
 }
 
-.btn {
-	padding: 6px 12px;
-	margin-bottom: 0;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	
-	text-transform: uppercase;
-	box-shadow: 0 0 2px 1px #86A4B3;
-	font-size: 22px;
-	font-weight: 500;
-	line-height: 40px;
-	width: 250px;
-}
-
-.btn-default {
-    background-color: #fff;
-    border-color: #ccc;
-	
-	color: #323232;
-}
-
 #package-contact, textarea{
 	margin-bottom: 20px;
 }
@@ -464,7 +459,40 @@ textarea.form-control{
 	line-height: 25px;
 }
 
+.site-footer .pull-right{
+	display: flex;
+}
+
+.back-to-top{
+	margin-right: 10px;
+}
+
+div.share{
+	display: flex;
+	justify-content: center;
+}
+
+.share-links{
+	display: flex;
+	list-style: none;
+	padding-left: 0;
+	margin-left: 10px;
+	margin-bottom: 0;
+}
+
+.share-links li{
+	margin-right: 10px;
+}
+
 /* MEDIA QUERIES */
+/* For desktop */
+
+@media only screen and (min-width: 768px) and (max-width: 990px){
+	.navbar-toggle{
+		display: block;
+	}
+}
+
 @media only screen and (min-width: 991px) {
   body {
     padding-left: 200px;
@@ -478,9 +506,29 @@ textarea.form-control{
 		color: #E3946B;	
 	}
 	
+	.parallax-window:first-child {
+		background-size: cover !important;
+		background-position: center center !important;
+	}
+	.parallax-window h1{
+		padding-bottom: 5vh;
+	}
+	
 	#top-content h2{
 		font-size: 72px;	
 		line-height: 80px;
+	}
+	
+	.about-content{
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		background: transparent;
+	}
+	
+	#about .section-content{
+		padding-left: 120px;
 	}
 	
 	#about h3 {
@@ -495,5 +543,15 @@ textarea.form-control{
 	
 	.package-row div p{
 		font-size: 15px;
+	}
+}
+
+@media only screen and (min-width: 991px) and (max-width: 1500px){
+	.btn, .package-header h3{
+		font-size: 14px;
+	}
+	
+	.package-row div p{
+		font-size: 11px;
 	}
 }

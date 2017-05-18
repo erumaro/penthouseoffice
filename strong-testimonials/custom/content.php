@@ -20,11 +20,11 @@
 
 					<?php wpmtst_the_title( '<h3 class="testimonial-heading">', '</h3>' ); ?>
 
-					<div class="testimonial-content col-md-8">
+					<div class="testimonial-content col-md-12">
 						<?php wpmtst_the_content(); ?>
 					</div>
 
-					<div class="testimonial-client col-md-8">
+					<div class="testimonial-client col-md-12">
 				        <?php wpmtst_the_thumbnail(); ?>
 				        <div class="testimonial-client-right">
 						<?php wpmtst_the_client(); ?>
