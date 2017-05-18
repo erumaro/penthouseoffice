@@ -12,8 +12,8 @@
 	</div>
 	<div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo the_field('bild_3') ?>">
 		<div class="gradient-bottom">
-			<h2><?php the_field('titel_2'); ?></h2>
-			<?php the_field('content_2'); ?>
+			<h2><?php the_field('titel_3'); ?></h2>
+			<?php the_field('content_3'); ?>
 		</div>
 	</div>
 	<div class="section-content">
@@ -34,7 +34,7 @@
 			echo '<div class="about-bg" style="background-image: url(' . get_the_post_thumbnail_url() . ')">';
 			echo '<div class="about-content">';
 			echo '<header class="col-md-12 col-lg-12"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
-			<div class="col-sm-10 col-md-9 col-lg-7 section-content">
+			<div class="col-sm-10 col-md-9 col-lg-9 section-content">
 			<?php echo the_content(); ?>
 			</div>
 		<?php echo '</div>';
@@ -58,7 +58,7 @@
 				if($query_facilities_2->have_posts()){
 					while($query_facilities_2->have_posts()){
 						$query_facilities_2->the_post(); ?>
-						<div class="col-lg-6 col-md-6 col-sm-10 col-xs-12 facilities-item" <?php if(has_post_thumbnail()): ?>style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')" <?php endif; ?>>
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 facilities-item" <?php if(has_post_thumbnail()): ?>style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')" <?php endif; ?>>
 							<h3 class="facilities-title"><?php the_title(); ?></h3>
 							<?php the_content(); ?>
 						</div>
@@ -320,14 +320,14 @@
 		while ( $query_contact->have_posts() ) {
 			$query_contact->the_post();
 			echo '<header class="col-lg-12 col-md-12"><h2 class="section-title">' . get_the_title() . '</h2></header>'; ?>
-			<div class="col-lg-6 col-md-6 col-sm-10 col-xs-12">
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<?php the_content(); ?>
 			</div><?php
 		}
 		
 		wp_reset_postdata();
 	} ?>
-			<div class="col-lg-6 col-md-6 col-sm-10 col-xs-12">
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<?php echo do_shortcode('[contact-form-7 id="21" title="Kontaktformulär 1"]'); ?>
 			</div>
 	</div>

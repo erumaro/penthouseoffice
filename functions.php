@@ -58,12 +58,10 @@ function penthouseoffice_scripts() {
 	wp_enqueue_script('parallax', get_template_directory_uri() . '/js/parallax.min.js', array('jquery'), '', true);
     wp_enqueue_script('penthouseoffice-custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), '', true);
 
-    /* Creates a global js var that can be used to call url dynamically.
-    For example: 
-    Old static way of getting url: 
-    var image = "http://moderntkontorshotell.se/wp-content/themes/modernkontorshotell/images/map-pointer.png";
-    New way: 
-    var image = directory_uri.stylesheet_directory_uri+"/images/map-pointer.png";
+    /* 
+	This code imports custom fields from wordpress into global variables usable in JavaScript.
+	For example:
+	console.log(wpglobals.iconURL); will show the map pin field the user added in a custom field on post 78 (aka Location/Plats)
     */
     $wnm_custom = array( 
 		'iconURL' => get_field('google_map_marker_icon', 78),

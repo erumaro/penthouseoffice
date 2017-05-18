@@ -223,6 +223,7 @@ section{
 }
 
 /* FACILITIES */
+
 .facilities-item{
     display: flex;
     flex-direction: column;
@@ -409,6 +410,7 @@ section{
 /* CONTACT */
 #contact{
     background: #BAB6DB;
+	padding: 0 30px;
 }
 
 label{
@@ -449,7 +451,7 @@ textarea.form-control{
 
 /* FOOTER */
 .site-footer{
-	margin: 15px;
+	margin: 15px 0;
 }
 
 .site-footer p{
@@ -485,14 +487,14 @@ div.share{
 }
 
 /* MEDIA QUERIES */
-/* For desktop */
 
+/* Re adds toggle button */
 @media only screen and (min-width: 768px) and (max-width: 990px){
 	.navbar-toggle{
 		display: block;
 	}
 }
-
+/* Larger screens (mainly desktop) and landscape mode devices */
 @media only screen and (min-width: 991px) {
   body {
     padding-left: 200px;
@@ -544,8 +546,13 @@ div.share{
 	.package-row div p{
 		font-size: 15px;
 	}
+	
+	.site-footer > *{
+		padding-left: 0;
+	}
 }
 
+/* Fixes text issues in the width range. */
 @media only screen and (min-width: 991px) and (max-width: 1500px){
 	.btn, .package-header h3{
 		font-size: 14px;
